@@ -18,6 +18,6 @@ jobs:
       - name: Run CI
         run:  |
           yarn install
-          # yarn run lint # or yarn lint
-          # yarn run test # or yarn test
+          # yarn run lint
+          yarn run test
           # yarn run build # or yarn build
