@@ -27,16 +27,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    
-    - name: SonarCloud scan
-      uses: sonarsource/sonarcloud-github-action@master
+    - name: Build with SonarCloud
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=testmavensonarworkflow -Dsonar.organization=testmavensonarworkflow -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: >
-            -Dsonar.organization=anupam-bit2004
-            -Dsonar.projectKey=mygitactions
-            
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
