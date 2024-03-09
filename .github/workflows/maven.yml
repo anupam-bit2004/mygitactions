@@ -31,7 +31,7 @@ jobs:
       - name: Run Super-Linter
         uses: super-linter/super-linter@v6.3.0
         env:
-          DEFAULT_BRANCH: main
+          #DEFAULT_BRANCH: main
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           
       - name: Analyze with SonarCloud
