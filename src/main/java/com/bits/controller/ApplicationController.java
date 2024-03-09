@@ -12,19 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class ApplicationController {
  
-	@RequestMapping(value="/Test", method = RequestMethod.GET)
+	@RequestMapping(value="/Test", method=RequestMethod.GET)
 	public String welcome(ModelMap model) { 
-		model.addAttribute("msgArgument", "Maven Java Web Application Project: Success!");
-
+		model.addAttribute("msgArgument", "Maven JavaWeb App Project: Success!");
 		return "index";
- 
 	}
- 
-	@RequestMapping(value="/Print/{arg}", method = RequestMethod.GET)
+	@RequestMapping(value="/Print/{arg}", method=RequestMethod.GET)
 	public String welcomeName(@PathVariable String arg, ModelMap model) {
-		model.addAttribute("msgArgument", "Maven Java Web Application Project, input variable: " + arg);
-		
+		model.addAttribute("msgArgument", "Maven JavaWeb App Project, input variable: " + arg);		
 		return "index";
 	}
- 
 }
