@@ -29,10 +29,10 @@ jobs:
           cache: maven
 
       - name: Run Super-Linter
-        uses: github/super-linter@v4
+        uses: super-linter/super-linter@v6.3.0
         env:
           DEFAULT_BRANCH: main
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           
       - name: Analyze with SonarCloud
         run: mvn clean verify sonar:sonar -Dsonar.projectKey=anupam-bit2004_mygitactions -Dsonar.organization=anupam-bit2004-1 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
